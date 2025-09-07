@@ -6,15 +6,13 @@ import styles from "./styles.module.scss";
 
 const Welcome = () => {
   const [name, setName] = useState();
-
   const navigate = useNavigate();
-
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:4000/user`, {
+        .get(`${process.env.REACT_APP_API_URL}/user`, {
           headers: {
             token: token,
           },
@@ -26,9 +24,9 @@ const Welcome = () => {
 
   return (
     <div className={styles.welcome}>
-      <h3>{name ? `¡Felicitaciones ${name}!` : "¿Que estas haciendo? 🕵️‍♂️"}</h3>
+      <h3>{name ? `¡Felicitaciones ${name}!` : "¿Qué estás haciendo? 🕵️‍♂️"}</h3>
       <h2>
-        {name ? "Te pudiste logear correctamente🎉" : "Te estamos viendo..."}
+        {name ? "Te pudiste logear correctamente 🎉" : "Te estamos viendo..."}
       </h2>
       <div className={styles.buttons}>
         <button onClick={() => navigate("/login")}>Login</button>
