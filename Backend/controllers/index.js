@@ -1,9 +1,9 @@
-const register = require('./register');
-const login = require('./login');
-const getUserById = require('./getUserByid');
+const getUserById = require("./getUserById");
+const register = require("./register");
+const login = require("./login");
 
 module.exports = {
-    register,
-    login,
-    getUserById
+  getUserById,
+  register,
+  login
 };
